@@ -71,12 +71,11 @@ string remove_spaces_paranthesis(string s) {
     int count = 0;
     for(int i = 0; i < ciu.size() - 1; i++) {
         if(ciu[i] == '(') count++;
-        if(ciu[i] == ')') count--; 
+        if(ciu[i] == ')') count--;
+        if(count == 0) 
+            return ciu;
     }
-    if(count == 0)
-        return ciu;
-    else
-        return ciu.substr(1, ciu.size() - 2);
+    return ciu.substr(1, ciu.size() - 2);
 }
 
 float eval_simple_expr(string s, map<string, float> val) {
